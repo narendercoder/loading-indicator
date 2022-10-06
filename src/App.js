@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import ProgressBar from "./Components/ProgressBar";
+
 
 function App() {
+  const [progress, setProgress] = useState(0);
+  const [start, setStart] = useState(false);
+  const state = {
+    size: 250,
+    progress,
+    strokeWidth: 15,
+    circleOneStroke: "#ccc",
+    circleTwoStroke: "#9198e5",
+  };
+  useEffect(() => {
+    let initTime = null;
+    if (start === true) {
+      if (progress >= 0 && progress < 100) {
+        initTime = setTimeout(() => setProgress(progress + 1), 20);
+      }
+    } else {
+      clearInterval(initTime);
+    }
+  }, [progress, start]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="loading-indicator">
+        <ProgressBar {...state} />
+        <div className="btn-group">
+          <button className="btn btn-play" onClick={() => setStart(true)}>
+            <span>Start</span>
+          </button>
+          <button className="btn btn-pause" onClick={() => setStart(false)}>
+          <span>Pause</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

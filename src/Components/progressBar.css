@@ -1,0 +1,72 @@
+.loading {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    max-height: 250px;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    overflow: visible;
+}
+
+.circular-bg,
+.circle {
+    fill: none;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 10px rgb(0 0 0 / 0.2));
+}
+
+.percentage {
+    text-anchor: middle;
+    dominant-baseline: middle;
+    font-size: 3rem;
+    fill: #fff;
+    font-weight: bold;
+}
+
+.btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-group .btn {
+    color: white;
+    height: 45px;
+    width: 110px;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    transition: box-shadow .3s, transform .3s;
+}
+.btn:hover{
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+}
+.btn:active{
+    transform: translateY(1px);
+    -webkit-transform: translateY(1px);
+    -moz-transform: translateY(1px);
+    -o-transform: translateY(1px);
+}
+
+.btn-play{
+    padding: 20px;
+    background-color: #603ef6;
+}
+.btn-pause{
+    padding: 15px;
+    background-color: #2B3044;
+}
+.icon{
+    font-size: 1.5rem;
+}
